@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# wifi start/stop network
+#
+
+case $1 in
+start)
+        # loopback
+        /sbin/ip addr add 127.0.0.1/8 dev lo broadcast + scope host
+        /sbin/ip link set lo up
+        # wpa_supplicant + wlp3s0 connection
+        /usr/sbin/wpa_supplicant -B -Dwext -iwlp3s0 -c/etc/wpa.conf
+        /sbin/dhcpcd -t 10 wlp3s0
+        ;;
+stop)
+        /usr/bin/killall -q /sbin/dhcpcd
+        /usr/bin/killall -q /usr/sbin/wpa_supplicant
+        /sbin/ip link set lo down
+        /sbin/ip addr del 127.0.0.1/8 dev lo
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "usage: $0 [start|stop|restart]"
+        ;;
+esac
+
+# End of file

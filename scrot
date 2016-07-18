@@ -1,0 +1,3 @@
+#/bin/sh
+
+fbdump -delay 5 | pnm2png > $1.png
