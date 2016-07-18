@@ -1,11 +1,6 @@
 #!/bin/sh
 
-# [ co ]
-
-# [ color.out ]
-
-# [ wuyin ]
-
+# co <color> 
 
 tput setaf $1
 
