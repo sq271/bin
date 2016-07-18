@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# [ co ]
+
+# [ color.out ]
+
+# [ wuyin ]
+
+
+tput setaf $1
+
+cat
+
+tput sgr0
+
+
+
+
+
+
+
+
+
+
+
