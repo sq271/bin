@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# vv <colo> <fname>
+
 tput setaf $1
 
 cat >> $2

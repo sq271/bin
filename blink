@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# blink [toggles]
+
+arg=$(cat /sys/class/graphics/fbcon/cursor_blink)
+
+if [ $arg == 0 ]; then
+    echo '1' > /sys/class/graphics/fbcon/cursor_blink
+else
+    echo '0' > /sys/class/graphics/fbcon/cursor_blink
+fi
