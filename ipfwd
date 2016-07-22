@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# ipfwd [toggles]  
+# be root 
+
+state=$(cat /proc/sys/net/ipv4/ip_forward)
+
+if [ $state == 0 ]; then
+    echo '1' > /proc/sys/net/ipv4/ip_forward
+    echo 'ipfwd enabled'
+else
+    echo '0' > /proc/sys/net/ipv4/ip_forward
+    echo 'ipfwd disabled'
+fi
+
+
+
+
+
